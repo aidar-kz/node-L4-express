@@ -39,15 +39,15 @@ app.post("/login", (req, res) => {
   res.json(req.body);
 });
 
-app.get("/products/:title", (req, res) => {
-  console.log(req.params);
-  res.json(req.params);
-});
+// app.get("/products/:title", (req, res) => {
+//   console.log(req.params);
+//   res.json(req.params);
+// });
 
-app.post("/products/:title", (req, res) => {
-  console.log(req.params);
-  res.json(req.params);
-});
+// app.post("/products/:title", (req, res) => {
+//   console.log(req.params);
+//   res.json(req.params);
+// });
 
 app.get("/register", (req, res) => {
   const filePath = path.join(__dirname, "/папка/register.html");
@@ -87,6 +87,39 @@ app.post("/register", (req, res) => {
       res.send("<h1>Пользователь зарегистрирован.");
     });
   });
+});
+
+const products = {
+  pc: "PC info",
+  car: "Car info",
+  tv: "TV info",
+};
+
+app.get("/products/:name", (req, res) => {
+  const productName = req.params.name;
+  if (products[productName]) {
+    res.send(products[productName]);
+  } else {
+    res.send("Товара с таким названием не найдено.");
+  }
+});
+
+const arr = [
+  { name: "Alice", email: "alice@mail.com", age: 22 },
+  { name: "Jake", email: "jake@mail.com", age: 29 },
+  { name: "Bob", email: "bob@mail.com", age: 27 },
+  { name: "Jill", email: "jill@mail.com", age: 21 },
+  { name: "Jane", email: "jane@mail.com", age: 25 },
+  { name: "Michael", email: "Michael@mail.com", age: 32 },
+];
+
+app.get("/user", (req, res) => {
+  const index = req.query.index;
+  if (index >= 0 && index < arr.length) {
+    res.json(arr[index]);
+  } else {
+    res.send("Пользователь не найден");
+  }
 });
 
 app.use((req, res) => {

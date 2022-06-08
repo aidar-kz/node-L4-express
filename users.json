@@ -4,5 +4,17 @@
     "lastname": "Parker",
     "email": "parker@thedailybugle.com",
     "age": "17"
+  },
+  {
+    "firstname": "Stephen",
+    "lastname": "Strange",
+    "email": "dr.strange@ny-sanctum.net",
+    "age": "36"
+  },
+  {
+    "firstname": "Tony",
+    "lastname": "Stark",
+    "email": "tony@stark.com",
+    "age": "48"
   }
 ]
