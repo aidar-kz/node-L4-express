@@ -22,3 +22,11 @@ app.get("/second", (req, res) => {
 });
 
 app.use(express.static("public"));
+
+app.get("/json", (req, res) => {
+  res.json({ id: 1, name: "Alice" });
+});
+
+app.get("/zapros", (req, res) => {
+  res.json(req.query);
+});
